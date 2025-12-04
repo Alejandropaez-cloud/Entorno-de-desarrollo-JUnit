@@ -57,15 +57,17 @@ public class Paqueteria {
         if (id.length() != 4) {
             return false;
         } // id.length() --> es básicamente la cantidad de caracteres que tiene un String
-          // Comproamos que todos sean dǵitps
-        for (int i = 0; i < id.length(); i++) {
-            if (!Character.isDigit(id.charAt(i)))
-                // Character.isDigit --> lo que hace es que todos sean dígitos (0-9)
-                // ChatAt(i) --> coge o extrae el caracter de la posicion i.
-                return false;
-        }
+          // Comproamos que todos sean dígitos
+        if (!Chart) {
+            
+        }   
+        
         // Si ha pasado todos las pruebas --> true
         return true;
     }
-    
+
+    // Ahora creamos el último método del proyecto que nos permitirá repartir cargas.
+    public static int repartirCargas (int totalPaquetes, int camiones) {
+        
+    }
 }
