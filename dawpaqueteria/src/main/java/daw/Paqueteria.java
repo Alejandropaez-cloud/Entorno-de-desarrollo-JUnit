@@ -28,20 +28,21 @@ public class Paqueteria {
                 precioBase = 20;
                 break;
             default:
-                if (peso < 5) {
-                    System.out.println("Si el peso es menor a 5, no hay suplemento");
-                }
-                if (peso > 5 && peso < 10) {
-                    precioBase = precioBase + 5;
-                    System.out.println(precioBase);
-                }
-                if (peso >= 10) {
-                    precioBase = precioBase + 10;
-                    System.out.println(precioBase);
-                }
+
                 precioFinal = precioBase;
                 return -1;
 
+        }
+        if (peso < 5) {
+            System.out.println("Si el peso es menor a 5, no hay suplemento");
+        }
+        if (peso > 5 && peso < 10) {
+            precioBase = precioBase + 5;
+            System.out.println(precioBase);
+        }
+        if (peso >= 10) {
+            precioBase = precioBase + 10;
+            System.out.println(precioBase);
         }
         return precioFinal;
     } // Creamos el método que nos permita validar el identificador
@@ -58,16 +59,31 @@ public class Paqueteria {
             return false;
         } // id.length() --> es básicamente la cantidad de caracteres que tiene un String
           // Comproamos que todos sean dígitos
-        if (!Chart) {
-            
-        }   
-        
+          // recorremos todas las posiciones del string con el bucle for y comprobamos
+          // que es un caracter con el metodo Character.isDigit();
+        for (int i = 0; i < id.length(); i++) {
+            if (!Character.isDigit(id.charAt(i))) {
+                return false;
+            }
+        }
+
         // Si ha pasado todos las pruebas --> true
         return true;
     }
 
-    // Ahora creamos el último método del proyecto que nos permitirá repartir cargas.
-    public static int repartirCargas (int totalPaquetes, int camiones) {
-        
+    // Ahora creamos el último método del proyecto que nos permitirá repartir
+    // cargas.
+    public static int repartirCargas(int totalPaquetes, int camiones) {
+        try {
+            int resultado = totalPaquetes / camiones;
+            return resultado; // división entera
+        } catch (ArithmeticException e) {
+            return 0;
+        }
+
+    }
+
+    public static void main(String[] args) {
+        System.out.println(calcularTarifaEnvio(3, "A"));
     }
 }
